@@ -83,43 +83,47 @@ const Upload = () => {
   }
 
   return (
-      <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+      <main className="bg-[#0a0e1a] min-h-screen">
         <Navbar/>
-        <section className="main-section">
-          <div className = "page-heading">
-            <h2>Smart feedback for your dream job</h2>
-            {isProcessing ? (
-                <>
-                  <h2>{statusText}</h2>
-                  <img src = '/images/resume-scan.gif'  className = 'w-full' alt='processing image'/>
-                </>
-            ) : (
-                <h2>Drop your resume for an ATS score and improvement tips</h2>
-            )}
-              {!isProcessing && (
-                  <form id = "upload-form" onSubmit = {handleSubmit} className = "flex flex-col gap-4 mt-8">
-                    <div className = "form-div">
-                        <label htmlFor = "company-name">Company Name</label>
-                        <input type = "text" name = "company-name" placeholder = "Company Name" id = "company-name"/>
-                    </div>
-                      <div className = "form-div">
-                          <label htmlFor = "job-title">Job Title</label>
-                          <input type = "text" name = "job-title" placeholder = "Job Title" id = "job-title"/>
-                      </div>
-                      <div className = "form-div">
-                          <label htmlFor = "job-description">Job Description</label>
-                          <textarea rows={5} name = "job-description" placeholder = "Job Description" id = "job-description"/>
-                      </div>
-                      <div className = "form-div">
-                          <label htmlFor = "uploader">Upload Resume</label>
-                          <FileUploader onFileSelect={handleFileSelect}/>
-                      </div>
-                      <button className = "primary-button" type = "submit">
-                          Analyze Resume
-                      </button>
-                  </form>
-              )}
+        <section className="max-w-3xl mx-auto px-6 py-20">
+          {/* Page heading */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+              Upload Your Resume
+            </h1>
+            <p className="mt-4 text-lg text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
+              Upload your resume and let ResumeIQ analyze your strengths and help you improve your next career opportunity.
+            </p>
           </div>
+
+          {isProcessing ? (
+            <div className="flex flex-col items-center justify-center py-10">
+              <h2 className="text-xl font-semibold text-[#F8FAFC] mb-6">{statusText}</h2>
+              <img src='/images/resume-scan.gif' className='w-full max-w-md' alt='processing image'/>
+            </div>
+          ) : (
+            <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div className="form-div">
+                <label htmlFor="company-name">Company Name</label>
+                <input type="text" name="company-name" placeholder="Company Name" id="company-name"/>
+              </div>
+              <div className="form-div">
+                <label htmlFor="job-title">Job Title</label>
+                <input type="text" name="job-title" placeholder="Job Title" id="job-title"/>
+              </div>
+              <div className="form-div">
+                <label htmlFor="job-description">Job Description</label>
+                <textarea rows={5} name="job-description" placeholder="Job Description" id="job-description"/>
+              </div>
+              <div className="form-div">
+                <label htmlFor="uploader">Upload Resume</label>
+                <FileUploader onFileSelect={handleFileSelect}/>
+              </div>
+              <button className="primary-button" type="submit">
+                Analyze Resume
+              </button>
+            </form>
+          )}
         </section>
       </main>
   );
