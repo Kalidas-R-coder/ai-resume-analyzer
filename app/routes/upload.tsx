@@ -97,9 +97,69 @@ const Upload = () => {
           </div>
 
           {isProcessing ? (
-            <div className="flex flex-col items-center justify-center py-10">
-              <h2 className="text-xl font-semibold text-[#F8FAFC] mb-6">{statusText}</h2>
-              <img src='/images/resume-scan.gif' className='w-full max-w-md' alt='processing image'/>
+            <div className="flex flex-col items-center justify-center py-20 px-6 text-center">
+              {/* Animated spinner with glow */}
+              <div className="relative w-24 h-24 flex items-center justify-center mb-8">
+                {/* Outer glow */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/30 to-blue-500/30 blur-2xl" />
+                {/* Spinner ring */}
+                <div className="relative w-24 h-24">
+                  <svg className="w-24 h-24 animate-spin" viewBox="0 0 100 100">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      stroke="#26334D"
+                      strokeWidth="6"
+                      fill="none"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      stroke="url(#spinner-grad)"
+                      strokeWidth="6"
+                      fill="none"
+                      strokeDasharray="251.2"
+                      strokeDashoffset="62.8"
+                      strokeLinecap="round"
+                    />
+                    <defs>
+                      <linearGradient id="spinner-grad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="#8B5CF6" />
+                        <stop offset="100%" stopColor="#3B82F6" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Document icon in center */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-8 h-8 text-[#8B5CF6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-2xl md:text-3xl font-bold text-[#F8FAFC]">
+                Analyzing Your Resume
+              </h2>
+
+              {/* Description */}
+              <p className="mt-4 text-[#94A3B8] max-w-md leading-relaxed">
+                We're reviewing your resume to identify strengths and opportunities for improvement.
+              </p>
+
+              {/* Processing status */}
+              {statusText && (
+                <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#111C32] border border-[#26334D]">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8B5CF6]/60"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8B5CF6]"></span>
+                  </span>
+                  <span className="text-sm text-[#94A3B8]">{statusText}</span>
+                </div>
+              )}
             </div>
           ) : (
             <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-6">

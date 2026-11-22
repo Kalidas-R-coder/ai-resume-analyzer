@@ -7,58 +7,70 @@ const ATS = ({
   score: number;
   suggestions: { type: "good" | "improve"; tip: string }[];
 }) => {
+  const scoreColor =
+    score > 69 ? "text-[#4ADE80]" : score > 49 ? "text-[#FBBF24]" : "text-[#F87171]";
+  const scoreBg =
+    score > 69 ? "bg-[#4ADE80]/10" : score > 49 ? "bg-[#FBBF24]/10" : "bg-[#F87171]/10";
+  const scoreBorder =
+    score > 69 ? "border-[#4ADE80]/20" : score > 49 ? "border-[#FBBF24]/20" : "border-[#F87171]/20";
+
   return (
-      <div
-          className={cn(
-              "rounded-2xl shadow-md w-full bg-gradient-to-b to-light-white p-8 flex flex-col gap-4",
-              score > 69
-                  ? "from-green-100"
-                  : score > 49
-                      ? "from-yellow-100"
-                      : "from-red-100"
-          )}
-      >
-        <div className="flex flex-row gap-4 items-center">
-          <img
-              src={
-                score > 69
-                    ? "/icons/ats-good.svg"
-                    : score > 49
-                        ? "/icons/ats-warning.svg"
-                        : "/icons/ats-bad.svg"
-              }
-              alt="ATS"
-              className="w-10 h-10"
-          />
-          <p className="text-2xl font-semibold">ATS Score - {score}/100</p>
+      <div className="rounded-2xl bg-[#111C32] border border-[#26334D] w-full p-6 flex flex-col gap-5">
+        {/* Header */}
+        <div className="flex items-center gap-4">
+          <div className={`w-12 h-12 rounded-xl ${scoreBg} border ${scoreBorder} flex items-center justify-center`}>
+            {score > 69 ? (
+              <svg className="w-6 h-6 text-[#4ADE80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            ) : score > 49 ? (
+              <svg className="w-6 h-6 text-[#FBBF24]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6 text-[#F87171]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            )}
+          </div>
+          <div>
+            <p className="text-xl font-semibold text-[#F8FAFC]">ATS Score</p>
+            <p className={`text-2xl font-bold ${scoreColor}`}>{score}/100</p>
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="font-medium text-xl">
+
+        {/* Description */}
+        <div className="flex flex-col gap-1">
+          <p className="text-base font-medium text-[#F8FAFC]">
             How well does your resume pass through Applicant Tracking Systems?
           </p>
-          <p className="text-lg text-gray-500">
-            Your resume was scanned like an employer would. Here's how it
-            performed:
-          </p>
-          {suggestions.map((suggestion, index) => (
-              <div className="flex flex-row gap-2 items-center" key={index}>
-                <img
-                    src={
-                      suggestion.type === "good"
-                          ? "/icons/check.svg"
-                          : "/icons/warning.svg"
-                    }
-                    alt="ATS"
-                    className="w-4 h-4"
-                />
-                <p className="text-lg text-gray-500">{suggestion.tip}</p>
-              </div>
-          ))}
-          <p className="text-lg text-gray-500">
-            Want a better score? Improve your resume by applying the suggestions
-            listed below.
+          <p className="text-sm text-[#94A3B8]">
+            Your resume was scanned like an employer would. Here's how it performed:
           </p>
         </div>
+
+        {/* Suggestions */}
+        <div className="flex flex-col gap-3">
+          {suggestions.map((suggestion, index) => (
+              <div className="flex items-start gap-3" key={index}>
+                {suggestion.type === "good" ? (
+                  <svg className="w-5 h-5 text-[#4ADE80] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5 text-[#FBBF24] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01" />
+                  </svg>
+                )}
+                <p className="text-sm text-[#F8FAFC] leading-relaxed">{suggestion.tip}</p>
+              </div>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <p className="text-sm text-[#94A3B8] pt-1 border-t border-[#26334D]">
+          Want a better score? Improve your resume by applying the suggestions listed above.
+        </p>
       </div>
   );
 };

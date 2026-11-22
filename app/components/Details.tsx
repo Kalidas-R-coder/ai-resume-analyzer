@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "~/lib/utils";
 import {
     Accordion,
@@ -16,27 +15,27 @@ const ScoreBadge = ({ score }: { score: number }) => {
     const isOkay = score > 39;
 
     const bgClass = isGood
-        ? "bg-green-100"
+        ? "bg-[#4ADE80]/15"
         : isOkay
-            ? "bg-yellow-100"
-            : "bg-red-100";
+            ? "bg-[#FBBF24]/15"
+            : "bg-[#F87171]/15";
 
     const textClass = isGood
-        ? "text-green-700"
+        ? "text-[#4ADE80]"
         : isOkay
-            ? "text-yellow-700"
-            : "text-red-700";
+            ? "text-[#FBBF24]"
+            : "text-[#F87171]";
 
     const icon = isGood ? (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
     ) : isOkay ? (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v4m0 4h.01" />
         </svg>
     ) : (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
     );
@@ -44,7 +43,7 @@ const ScoreBadge = ({ score }: { score: number }) => {
     return (
         <span
             className={cn(
-                "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-sm font-medium",
+                "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium flex-shrink-0",
                 bgClass,
                 textClass
             )}
@@ -63,8 +62,8 @@ const CategoryHeader = ({
     categoryScore: number;
 }) => {
     return (
-        <div className="flex items-center justify-between">
-            <p className="text-base font-semibold text-gray-800">{title}</p>
+        <div className="flex items-center justify-between gap-3">
+            <p className="text-sm font-medium text-[#F8FAFC]">{title}</p>
             <ScoreBadge score={categoryScore} />
         </div>
     );
@@ -73,24 +72,20 @@ const CategoryHeader = ({
 const CategoryContent = ({ tips }: { tips: Tip[] }) => {
     return (
         <div className="flex flex-col gap-4">
-            {/* Two-column grid for tips */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Tips list */}
+            <div className="flex flex-col gap-3">
                 {tips.map((tip, i) => (
-                    <div key={i} className="flex items-start gap-2">
+                    <div key={i} className="flex items-start gap-3">
                         {tip.type === "good" ? (
-                            <img
-                                src="/icons/check.svg"
-                                alt="Check"
-                                className="w-5 h-5 mt-0.5 flex-shrink-0"
-                            />
+                            <svg className="w-5 h-5 text-[#4ADE80] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
                         ) : (
-                            <img
-                                src="/icons/warning.svg"
-                                alt="Warning"
-                                className="w-5 h-5 mt-0.5 flex-shrink-0"
-                            />
+                            <svg className="w-5 h-5 text-[#FBBF24] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01" />
+                            </svg>
                         )}
-                        <span className="text-sm text-gray-700">{tip.tip}</span>
+                        <span className="text-sm text-[#F8FAFC] leading-relaxed">{tip.tip}</span>
                     </div>
                 ))}
             </div>
@@ -103,8 +98,8 @@ const CategoryContent = ({ tips }: { tips: Tip[] }) => {
                         className={cn(
                             "rounded-lg p-3 text-sm border",
                             tip.type === "good"
-                                ? "bg-green-50 border-green-200 text-green-800"
-                                : "bg-orange-50 border-orange-200 text-orange-800"
+                                ? "bg-[#4ADE80]/5 border-[#4ADE80]/20 text-[#4ADE80]"
+                                : "bg-[#FBBF24]/5 border-[#FBBF24]/20 text-[#FBBF24]"
                         )}
                     >
                         {tip.explanation}
@@ -126,8 +121,13 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
     ];
 
     return (
-        <div className="rounded-2xl shadow-md w-full bg-white p-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Detailed Feedback</h2>
+        <div className="rounded-2xl bg-[#111C32] border border-[#26334D] w-full p-6">
+            <div className="mb-5">
+                <h2 className="text-xl font-bold text-[#F8FAFC]">Detailed Feedback</h2>
+                <p className="text-sm text-[#94A3B8] mt-1">
+                    In-depth analysis of each category with actionable suggestions.
+                </p>
+            </div>
             <Accordion>
                 {categories.map(({ id, title, data }) => (
                     <AccordionItem key={id} id={id}>
