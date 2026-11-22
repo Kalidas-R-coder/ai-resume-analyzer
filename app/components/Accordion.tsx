@@ -161,7 +161,7 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
         <div
             className={`
         overflow-hidden transition-all duration-300 ease-in-out
-        ${isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0"}
+        ${isActive ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}
         ${className}
       `}
         >

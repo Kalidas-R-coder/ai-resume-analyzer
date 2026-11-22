@@ -121,7 +121,7 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
     ];
 
     return (
-        <div className="rounded-2xl bg-[#111C32] border border-[#26334D] w-full p-6">
+        <div className="rounded-2xl bg-[#111C32] border border-[#26334D] w-full p-4 sm:p-6">
             <div className="mb-5">
                 <h2 className="text-xl font-bold text-[#F8FAFC]">Detailed Feedback</h2>
                 <p className="text-sm text-[#94A3B8] mt-1">

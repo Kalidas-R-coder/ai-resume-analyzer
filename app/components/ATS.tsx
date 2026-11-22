@@ -15,7 +15,7 @@ const ATS = ({
     score > 69 ? "border-[#4ADE80]/20" : score > 49 ? "border-[#FBBF24]/20" : "border-[#F87171]/20";
 
   return (
-      <div className="rounded-2xl bg-[#111C32] border border-[#26334D] w-full p-6 flex flex-col gap-5">
+      <div className="rounded-2xl bg-[#111C32] border border-[#26334D] w-full p-4 sm:p-6 flex flex-col gap-5">
         {/* Header */}
         <div className="flex items-center gap-4">
           <div className={`w-12 h-12 rounded-xl ${scoreBg} border ${scoreBorder} flex items-center justify-center`}>

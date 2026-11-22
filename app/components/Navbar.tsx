@@ -67,7 +67,7 @@ const Navbar = () => {
             <polyline points="17 8 12 3 7 8" />
             <line x1="12" y1="3" x2="12" y2="15" />
           </svg>
-          Upload Resume
+          <span className="hidden sm:inline">Upload Resume</span>
         </Link>
         {auth.isAuthenticated && (
           <div className="relative" ref={menuRef}>

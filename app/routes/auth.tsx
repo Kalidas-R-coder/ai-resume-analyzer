@@ -24,8 +24,8 @@ const Auth = () => {
   return (
       <main className="bg-[#0a0e1a] min-h-screen flex items-center justify-center px-6">
         {/* Ambient glow effects */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#8B5CF6]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#3B82F6]/10 rounded-full blur-3xl" />
+        <div className="hidden sm:block absolute top-1/4 left-1/4 w-96 h-96 bg-[#8B5CF6]/10 rounded-full blur-3xl" />
+        <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#3B82F6]/10 rounded-full blur-3xl" />
 
         <div className="relative w-full max-w-md">
           {/* Logo */}
@@ -54,9 +54,9 @@ const Auth = () => {
           {/* Sign-in card */}
           <div className="rounded-2xl bg-[#111C32] border border-[#26334D] p-8 flex flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-3 text-center">
-              <h1 className="text-2xl md:text-3xl font-bold text-[#F8FAFC]">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#F8FAFC]">
                 Welcome to ResumeIQ
-              </h1>
+              </h2>
               <p className="text-[#94A3B8] leading-relaxed">
                 Sign in to analyze your resumes, understand your strengths, and get actionable feedback for your next career opportunity.
               </p>

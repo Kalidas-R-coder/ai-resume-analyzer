@@ -7,7 +7,7 @@ import Details from "~/components/Details";
 import Navbar from "~/components/Navbar";
 
 export const meta = () =>
-    ([{title: 'Resumind | Review'}, {name: 'Description', content: 'Detailed overview of your resume'}])
+    ([{title: 'ResumeIQ | Resume Review'}, {name: 'Description', content: 'Detailed overview of your resume'}])
 
 const Resume = () => {
     const { id } = useParams();
@@ -53,31 +53,33 @@ const Resume = () => {
         <Navbar />
         
         {/* Header */}
-        <div className="max-w-7xl mx-auto px-6 pt-6 pb-8">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#111C32] border border-[#26334D] text-sm font-medium text-[#F8FAFC] hover:border-[#8B5CF6]/50 hover:text-[#8B5CF6] transition-all duration-300 cursor-pointer"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-            </svg>
-            Back to Homepage
-          </Link>
-          <h2 className="mt-4 text-xl md:text-2xl font-bold text-[#F8FAFC]">
-            <span className="text-gradient">Resume Review</span>
-          </h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-6">
+          <div className="flex flex-col gap-4">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#111C32] border border-[#26334D] text-sm font-medium text-[#F8FAFC] hover:border-[#8B5CF6]/50 hover:text-[#8B5CF6] transition-all duration-300 cursor-pointer w-fit"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+              </svg>
+              Back to Homepage
+            </Link>
+            <h2 className="text-xl md:text-2xl font-bold text-[#F8FAFC]">
+              <span className="text-gradient">Resume Review</span>
+            </h2>
+          </div>
         </div>
 
         {/* Main content */}
-        <div className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
           {/* Loading state – single centered indicator */}
           {!(imageUrl && resumeUrl && feedback) ? (
-            <div className="flex flex-col items-center justify-center py-20 px-6 text-center min-h-[50vh]">
+            <div className="flex flex-col items-center justify-center py-20 px-4 sm:px-6 text-center min-h-[50vh]">
               {/* Animated spinner with glow */}
-              <div className="relative w-24 h-24 flex items-center justify-center mb-8">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mb-8">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/30 to-blue-500/30 blur-2xl" />
-                <div className="relative w-24 h-24">
-                  <svg className="w-24 h-24 animate-spin" viewBox="0 0 100 100">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24">
+                  <svg className="w-20 h-20 sm:w-24 sm:h-24 animate-spin" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="40" stroke="#26334D" strokeWidth="6" fill="none" />
                     <circle
                       cx="50"
@@ -113,14 +115,14 @@ const Resume = () => {
             </div>
           ) : (
             /* Two-column layout: PDF preview + Score panel */
-            <div className="flex flex-col lg:flex-row gap-8 items-start">
+            <div className="flex flex-col lg:flex-row xl:gap-10 gap-8 items-start">
               {/* PDF Preview - Left column */}
-              <section className="w-full lg:w-1/2 lg:sticky lg:top-6">
+              <section className="w-full lg:w-5/12 xl:w-1/2 lg:sticky lg:top-6">
                 <div className="animate-in fade-in duration-1000 rounded-2xl overflow-hidden bg-[#111C32] border border-[#26334D]">
                   <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
                     <img
                       src={imageUrl}
-                      className="w-full h-auto object-contain"
+                      className="w-full max-w-full h-auto object-contain max-h-[50vh] sm:max-h-none"
                       title="resume" alt="resume"
                     />
                   </a>
@@ -128,7 +130,7 @@ const Resume = () => {
               </section>
 
               {/* Score Panel - Right column */}
-              <section className="w-full lg:w-1/2">
+              <section className="w-full lg:w-7/12 xl:w-1/2">
                 <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
                   <Summary feedback={feedback} />
                   <ATS score={feedback.ATS?.score || 0} suggestions={feedback.ATS?.tips || []} />

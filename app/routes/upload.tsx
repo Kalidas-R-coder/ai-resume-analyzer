@@ -1,4 +1,5 @@
 import React, {type FormEvent, useState} from "react";
+import {Link} from "react-router";
 import Navbar from "~/components/Navbar";
 import FileUploader from "~/components/FileUploader";
 import {usePuterStore} from "~/lib/puter";
@@ -85,10 +86,23 @@ const Upload = () => {
   return (
       <main className="bg-[#0a0e1a] min-h-screen">
         <Navbar/>
-        <section className="max-w-3xl mx-auto px-6 py-20">
+        {/* Header */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-6">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#111C32] border border-[#26334D] text-sm font-medium text-[#F8FAFC] hover:border-[#8B5CF6]/50 hover:text-[#8B5CF6] transition-all duration-300 cursor-pointer w-fit"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            Back to Homepage
+          </Link>
+        </div>
+        {/* Form content */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
           {/* Page heading */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] leading-tight tracking-tight">
               Upload Your Resume
             </h1>
             <p className="mt-4 text-lg text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
@@ -97,14 +111,14 @@ const Upload = () => {
           </div>
 
           {isProcessing ? (
-            <div className="flex flex-col items-center justify-center py-20 px-6 text-center">
+            <div className="flex flex-col items-center justify-center py-20 px-4 sm:px-6 text-center">
               {/* Animated spinner with glow */}
-              <div className="relative w-24 h-24 flex items-center justify-center mb-8">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mb-8">
                 {/* Outer glow */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/30 to-blue-500/30 blur-2xl" />
                 {/* Spinner ring */}
-                <div className="relative w-24 h-24">
-                  <svg className="w-24 h-24 animate-spin" viewBox="0 0 100 100">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24">
+                  <svg className="w-20 h-20 sm:w-24 sm:h-24 animate-spin" viewBox="0 0 100 100">
                     <circle
                       cx="50"
                       cy="50"

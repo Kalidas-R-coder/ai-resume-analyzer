@@ -31,7 +31,7 @@ const FileUploader = ({onFileSelect} :FileUploaderProps) => {
 
   return (
     <div className="w-full">
-      <div {...getRootProps()} className={`cursor-pointer rounded-2xl border-2 border-dashed p-8 text-center transition-all duration-300 ${
+      <div {...getRootProps()} className={`cursor-pointer rounded-2xl border-2 border-dashed p-6 sm:p-8 text-center transition-all duration-300 ${
         isDragActive
           ? 'border-[#8B5CF6] bg-[#8B5CF6]/10 scale-[1.01]'
           : 'border-[#26334D] bg-[#111C32] hover:border-[#8B5CF6]/50 hover:bg-[#182238]'
