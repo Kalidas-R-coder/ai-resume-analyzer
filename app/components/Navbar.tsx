@@ -2,7 +2,8 @@ import {Link} from "react-router";
 
 const Navbar = () => {
   return (
-    <nav className="w-full px-6 py-4 flex items-center justify-between max-w-[1200px] mx-auto">
+    <div className="w-full px-4 py-3 flex justify-center">
+      <nav className="w-full max-w-[1200px] bg-[#111C32]/85 backdrop-blur-md border border-[#8B5CF6]/18 rounded-xl px-6 py-3.5 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.25)]">
       <Link to="/" className="flex items-center gap-2 group">
         {/* Document/Resume icon */}
         <svg
@@ -43,7 +44,8 @@ const Navbar = () => {
         </svg>
         Upload Resume
       </Link>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

@@ -67,7 +67,7 @@ export default function Home() {
             Track and manage your analyzed resumes in one place. ({resumes.length} {resumes.length === 1 ? 'resume' : 'resumes'})
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className={`grid gap-6 max-w-5xl ${resumes.length === 1 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
           {resumes.map((resume) => (<ResumeCard key={resume.id} resume={resume} />))}
         </div>
       </div>

@@ -25,14 +25,14 @@ const ResumeCard = ({resume : {id, companyName, jobTitle, feedback, imagePath}} 
         >
             {/* Header */}
             <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex flex-col gap-1 min-w-0">
+                <div className="flex flex-col gap-1 min-w-0 flex-1">
                     {companyName && (
-                        <h2 className="text-[#F8FAFC] font-semibold text-base truncate group-hover:text-[#8B5CF6] transition-colors duration-300">
+                        <h2 className="text-[#F8FAFC] font-semibold text-base leading-snug group-hover:text-[#8B5CF6] transition-colors duration-300 line-clamp-2">
                             {companyName}
                         </h2>
                     )}
                     {jobTitle && (
-                        <h3 className="text-[#94A3B8] text-sm truncate">
+                        <h3 className="text-[#94A3B8] text-sm leading-snug line-clamp-2">
                             {jobTitle}
                         </h3>
                     )}
@@ -53,7 +53,7 @@ const ResumeCard = ({resume : {id, companyName, jobTitle, feedback, imagePath}} 
                     <img
                         src={resumeUrl}
                         alt="resume"
-                        className="w-full h-[260px] sm:h-[280px] object-cover object-top"
+                        className="w-full h-auto aspect-[3/4] object-cover object-top"
                     />
                 </div>
             )}
