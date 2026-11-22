@@ -40,7 +40,7 @@ export default function Home() {
   return <main className="bg-[#0a0e1a]">
     <Navbar/>
     <section className="main-section">
-      <div className="max-w-4xl mx-auto px-6 py-20 text-center">
+      <div className="max-w-4xl mx-auto px-6 pt-12 pb-16 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
           Your Career Journey, Smarter with{' '}
           <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
