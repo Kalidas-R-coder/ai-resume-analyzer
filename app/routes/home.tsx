@@ -37,16 +37,19 @@ export default function Home() {
     }, []);
 
 
-  return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+  return <main className="bg-[#0a0e1a]">
     <Navbar/>
     <section className="main-section">
-      <div className="page-heading py-16">
-        <h1>Track Your Application & Resume Ratings</h1>
-          {!loadingResumes && resumes?.length === 0 ? (
-              <h2>No resumes found. Upload first resume to get feedback.</h2>
-          ) : (
-              <h2>Review your submissions and check AI-powered feedback.</h2>
-          )}
+      <div className="max-w-4xl mx-auto px-6 py-20 text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+          Your Career Journey, Smarter with{' '}
+          <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+            ResumeIQ
+          </span>
+        </h1>
+        <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          Analyze your resumes, understand your strengths, and get actionable feedback to stand out in your next opportunity.
+        </p>
       </div>
         {loadingResumes && (
             <div className = "flex flex-col items-center justify-center">
