@@ -57,9 +57,21 @@ export default function Home() {
             </div>
         )}
 
-    {!loadingResumes && resumes.length > 0 && (<div className = "resumes-section">
-      {resumes.map((resume) => (<ResumeCard key={resume.id} resume={resume} />))}
-    </div>)}
+    {!loadingResumes && resumes.length > 0 && (
+      <div className="max-w-6xl mx-auto px-6 pb-20">
+        <div className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#F8FAFC]">
+            Your Resumes
+          </h2>
+          <p className="mt-2 text-[#94A3B8]">
+            Track and manage your analyzed resumes in one place. ({resumes.length} {resumes.length === 1 ? 'resume' : 'resumes'})
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {resumes.map((resume) => (<ResumeCard key={resume.id} resume={resume} />))}
+        </div>
+      </div>
+    )}
 
         {!loadingResumes && resumes?.length === 0 && (
             <div className = "flex flex-col items-center justify-center mt-10 gap-4">
