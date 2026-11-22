@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full px-4 py-3 flex justify-center">
-      <nav className="w-full max-w-[1200px] bg-[#111C32]/85 backdrop-blur-md border border-[#8B5CF6]/18 rounded-xl px-6 py-3.5 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.25)]">
+      <nav className="w-full max-w-[1200px] bg-[#111C32]/85 backdrop-blur-md border border-[#8B5CF6]/18 rounded-xl px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.25)]">
       <Link to="/" className="flex items-center gap-2 group">
         {/* Document/Resume icon */}
         <svg
@@ -74,7 +74,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="w-9 h-9 rounded-full bg-[#182238] border border-[#26334D] flex items-center justify-center hover:border-[#8B5CF6] hover:bg-[#8B5CF6]/10 hover:scale-110 hover:shadow-[0_0_12px_rgba(139,92,246,0.3)] focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]/50 focus:ring-offset-2 focus:ring-offset-[#111C32] transition-all duration-200 cursor-pointer"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#182238] border border-[#26334D] flex items-center justify-center hover:border-[#8B5CF6] hover:bg-[#8B5CF6]/10 hover:scale-110 hover:shadow-[0_0_12px_rgba(139,92,246,0.3)] focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]/50 focus:ring-offset-2 focus:ring-offset-[#111C32] transition-all duration-200 cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

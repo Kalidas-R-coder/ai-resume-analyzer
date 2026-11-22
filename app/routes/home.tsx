@@ -37,7 +37,7 @@ export default function Home() {
     }, []);
 
 
-  return <main className="bg-[#0a0e1a]">
+  return <main>
     <Navbar/>
     <section className="main-section">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-16 text-center">
@@ -89,7 +89,7 @@ export default function Home() {
         )}
 
     {!loadingResumes && resumes.length > 0 && (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
         <div className="mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-[#F8FAFC]">
             Your Resumes
@@ -98,7 +98,7 @@ export default function Home() {
             Track and manage your analyzed resumes in one place. ({resumes.length} {resumes.length === 1 ? 'resume' : 'resumes'})
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {resumes.map((resume) => (<ResumeCard key={resume.id} resume={resume} />))}
         </div>
       </div>

@@ -49,7 +49,7 @@ const Resume = () => {
         loadResume();
     }, [id, kv, fs]);
   return (
-      <main className="bg-[#0a0e1a] min-h-screen">
+      <main>
         <Navbar />
         
         {/* Header */}
@@ -117,12 +117,12 @@ const Resume = () => {
             /* Two-column layout: PDF preview + Score panel */
             <div className="flex flex-col lg:flex-row xl:gap-10 gap-8 items-start">
               {/* PDF Preview - Left column */}
-              <section className="w-full lg:w-5/12 xl:w-1/2 lg:sticky lg:top-6">
+              <section className="w-full lg:w-5/12 xl:w-1/2 xl:sticky xl:top-6">
                 <div className="animate-in fade-in duration-1000 rounded-2xl overflow-hidden bg-[#111C32] border border-[#26334D]">
                   <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
                     <img
                       src={imageUrl}
-                      className="w-full max-w-full h-auto object-contain max-h-[50vh] sm:max-h-none"
+                      className="w-full max-w-full h-auto object-contain"
                       title="resume" alt="resume"
                     />
                   </a>

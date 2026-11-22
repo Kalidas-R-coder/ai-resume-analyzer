@@ -84,7 +84,7 @@ const Upload = () => {
   }
 
   return (
-      <main className="bg-[#0a0e1a] min-h-screen">
+      <main>
         <Navbar/>
         {/* Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-6">
